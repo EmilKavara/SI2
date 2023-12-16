@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.fxml.FXML?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox spacing="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projekat.MainController">
+    <children>
+        <HBox spacing="10">
+            <ComboBox fx:id="attributeComboBox" prefWidth="130">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Naziv"/>
+                        <String fx:value="Model"/>
+                        <String fx:value="Vrsta Goriva"/>
+                        <String fx:value="Registracija"/>
+                    </FXCollections>
+                </items>
+                <value>
+                    <String fx:value="Naziv"/>
+                </value>
+            </ComboBox>
+
+            <TextField fx:id="searchTextField" promptText="Search..."/>
+            <CheckBox fx:id="checkBoxKupovina" text="Dostupno za Kupovinu"/>
+            <CheckBox fx:id="checkBoxIznajmljivanje" text="Dostupno za Iznajmljivanje"/>
+            <Button fx:id="addNewCarButton" text="Dodaj Novo Vozilo" onAction="#addNewCar" prefWidth="120"/>
+            <Button fx:id="editCarButton" text="Edit" onAction="#editSelectedCar" prefWidth="100"/>
+            <Button fx:id="deleteCarButton" text="Izbriši Vozilo" onAction="#deleteSelectedCar" prefWidth="100"/>
+        </HBox>
+
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn text="Naziv" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="naziv"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Model" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="model"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Godiste" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="godiste"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Registracija" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="registracija"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Kilometraza" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="kilometraza"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Vrsta Goriva" prefWidth="100">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="vrstaGoriva"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Dostupno za Kupovinu" prefWidth="150">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dostupnoZaKupovinu"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Dostupno za Iznajmljivanje" prefWidth="180">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="dostupnoZaIznajmljivanje"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+            </columns>
+        </TableView>
+    </children>
+</VBox>
