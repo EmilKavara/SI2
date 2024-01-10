@@ -4,19 +4,31 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class UpravljanjeVozilima {
+public class UpravljanjeVozilima implements VehicleManagement{
     private static final String FILE_PATH = "vozila.txt";
     private ObservableList<Vozilo> listaVozila;
 
+    private Map<String, Vozilo> vozilaMap;
+
     public UpravljanjeVozilima() {
         this.listaVozila = FXCollections.observableArrayList();
+        this.vozilaMap = new HashMap<>();
         ucitavanjeIzFajla();
     }
 
+    @Override
     public void dodajVozilo(Vozilo vozilo) {
         listaVozila.add(vozilo);
-        System.out.println("Dodano je vozilo. "+vozilo);
+        vozilaMap.put(vozilo.getRegistracija(), vozilo);
+        System.out.println("Dodano je vozilo. " + vozilo);
+        sacuvajUFajl();
+    }
+
+    public Vozilo getVoziloByRegistracija(String registracija) {
+        return vozilaMap.get(registracija);
     }
 
     /**
@@ -68,6 +80,7 @@ public class UpravljanjeVozilima {
      * @param vozilo koje se uklanja
      * @return true ako je uspješno uklonjeno, false ako nije uspjelo uklanjanje
      */
+    @Override
     public boolean obrisiVozilo(Vozilo vozilo) {
         boolean removed = listaVozila.remove(vozilo);
         if (removed) {
@@ -96,7 +109,6 @@ public class UpravljanjeVozilima {
             }
         } catch (IOException e) {
             e.printStackTrace();
-            // Handle or log the exception appropriately
         }
         return listaVozila;
     }
@@ -143,16 +155,23 @@ public class UpravljanjeVozilima {
      * @param selectedVozilo vozilo koje se ažurira
      * @param updatedVozilo  novo vozilo sa ažuriranim podacima
      */
+    @Override
     public void updateVozilo(Vozilo selectedVozilo, Vozilo updatedVozilo) {
         int index = listaVozila.indexOf(selectedVozilo);
 
         if (index != -1) {
             listaVozila.set(index, updatedVozilo);
+            vozilaMap.put(updatedVozilo.getRegistracija(), updatedVozilo);
             System.out.println("Ažuriranje vozila: " + selectedVozilo);
             sacuvajUFajl();
         }
     }
+
     public void setListaVozila(ObservableList<Vozilo> listaVozila) {
         this.listaVozila = listaVozila;
+        this.vozilaMap.clear();
+        for (Vozilo vozilo : listaVozila) {
+            vozilaMap.put(vozilo.getRegistracija(), vozilo);
+        }
     }
 }
