@@ -169,7 +169,7 @@ public class MainController {
      * Otvaranje novog prozora za dodavanje novog vozila
      */
     @FXML
-    private void dodajVozilo() {
+    private void addNewCar() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("add-car.fxml"));
             Parent root = fxmlLoader.load();

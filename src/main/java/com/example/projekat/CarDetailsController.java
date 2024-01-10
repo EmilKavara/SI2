@@ -93,6 +93,7 @@ public abstract class CarDetailsController {
         String registracija = registracijaTextField.getText();
         int kilometraza = Integer.parseInt(kilometrazaTextField.getText());
 
+        // RegEx koji osigurava da naziv i model ne počinju sa brojem
         return !naziv.matches("^\\d.*") && !model.matches("^\\d.*") &&
                 (godiste >= 1900 && godiste <= 2023) && !registracija.isBlank() && kilometraza >= 0;
     }

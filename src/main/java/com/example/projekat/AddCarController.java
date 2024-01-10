@@ -3,7 +3,7 @@ package com.example.projekat;
 import javafx.fxml.FXML;
 
 public class AddCarController extends CarDetailsController {
-    // Koristi se kao zastava koja određuje da li se radi o spremanju podataka ili zatvaranju prozora
+    // Određuje da li se radi o spremanju podataka ili zatvaranju prozora
     private boolean isSaving = false;
 
     /**
