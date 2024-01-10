@@ -1,4 +1,4 @@
 Citroen,C5,2002,FAAW3E,23322,HIBRIDNO,dostupno za kupovinu,nije dostupno za iznajmljivanje
-Bugatti,Chiron,2020,SDFFS,123321,DIZEL,dostupno za kupovinu,dostupno za iznajmljivanje
+Bugatti,Chiron,2020,SDFFS,123321,DIZEL,nije dostupno za kupovinu,dostupno za iznajmljivanje
 Porsche,Carrera,2023,4GDSSGD,23422,HIBRIDNO,dostupno za kupovinu,nije dostupno za iznajmljivanje
 Pontiac,Aztec,2002,SA-107-248,10000,BENZIN,dostupno za kupovinu,dostupno za iznajmljivanje

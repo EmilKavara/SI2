@@ -23,6 +23,8 @@ public class UpravljanjeVozilima implements VehicleManagement{
     public void dodajVozilo(Vozilo vozilo) {
         listaVozila.add(vozilo);
         vozilaMap.put(vozilo.getRegistracija(), vozilo);
+        System.out.println("-----------------");
+        System.out.println("-----------------");
         System.out.println("Dodano je vozilo. " + vozilo);
         sacuvajUFajl();
     }
@@ -126,6 +128,8 @@ public class UpravljanjeVozilima implements VehicleManagement{
             e.printStackTrace();
             // Handle or log the exception appropriately
         }
+        System.out.println("-----------------------");
+        System.out.println("-----------------------");
         System.out.println("Vozila su sačuvana u vozila.txt");
     }
 
@@ -162,6 +166,8 @@ public class UpravljanjeVozilima implements VehicleManagement{
         if (index != -1) {
             listaVozila.set(index, updatedVozilo);
             vozilaMap.put(updatedVozilo.getRegistracija(), updatedVozilo);
+            System.out.println("--------------------");
+            System.out.println("--------------------");
             System.out.println("Ažuriranje vozila: " + selectedVozilo);
             sacuvajUFajl();
         }

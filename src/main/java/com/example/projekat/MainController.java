@@ -116,6 +116,8 @@ public class MainController {
      * Ispis vrijednosti liste u konzolu
      */
     private void configureTableData() {
+        System.out.println("----------------------");
+        System.out.println("----------------------");
         System.out.println("Originalna Lista Vozila:");
         originalnaListaVozila.forEach(System.out::println);
         table.setItems(originalnaListaVozila);
@@ -225,6 +227,8 @@ public class MainController {
             if (removed) {
                 table.refresh();
                 table.setItems(originalnaListaVozila);
+                System.out.println("-----------------------");
+                System.out.println("-----------------------");
                 System.out.println("Brisanje vozila: " + selectedVozilo);
             }
         } else {
